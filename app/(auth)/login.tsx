@@ -4,8 +4,10 @@ import { useLogin } from "@/hooks/useAuth";
 import { saveToken } from "@/services/storage.service";
 import { setAuth } from "@/store/slices/auth.slice";
 import { Ionicons } from "@expo/vector-icons";
+import * as Haptics from "expo-haptics";
 import { router } from "expo-router";
 import { useState } from "react";
+
 import {
   ActivityIndicator,
   Pressable,
@@ -145,7 +147,10 @@ export default function Login() {
 
         {/* REGISTER LINK */}
         <Pressable
-          onPress={() => router.push("/(auth)/register")}
+          onPress={() => {
+            Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+            router.push("/(auth)/register");
+          }}
           style={{ marginTop: 12 }}
         >
           <Text style={styles.registerText}>
