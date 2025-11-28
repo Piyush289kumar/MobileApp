@@ -1,7 +1,6 @@
 // app/(auth)/login.tsx
 
 import { useLogin } from "@/hooks/useAuth";
-import { saveToken } from "@/services/storage.service";
 import { setAuth } from "@/store/slices/auth.slice";
 import { Ionicons } from "@expo/vector-icons";
 import * as Haptics from "expo-haptics";
@@ -20,6 +19,7 @@ import { useDispatch } from "react-redux";
 
 // validators
 import { useToast } from "@/components/ui/ToastProvider";
+import { saveToken } from "@/services/auth.util";
 import { validateEmail, validatePassword } from "@/utils/validators";
 
 export default function Login() {
@@ -50,8 +50,8 @@ export default function Login() {
 
         onSuccess: async ({ token, user }) => {
           toast.success("Logged in successfully!");
-          dispatch(setAuth({ user, token }));
           await saveToken(token);
+          dispatch(setAuth({ user, token }));
           router.replace("/(tabs)");
         },
       }
