@@ -1,3 +1,5 @@
+// app/_layout.tsx
+
 import "@/global.css";
 import {
   DarkTheme,
@@ -14,7 +16,6 @@ import { useColorScheme } from "@/hooks/use-color-scheme";
 import { store } from "@/store";
 import { Provider } from "react-redux";
 
-// TanStack Query
 // TanStack Query
 import { GluestackUIProvider } from "@/components/ui/gluestack-ui-provider";
 import { ToastProvider } from "@/components/ui/ToastProvider";

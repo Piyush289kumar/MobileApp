@@ -10,6 +10,7 @@ import { ThemedView } from "@/components/themed-view";
 
 import { Button, ButtonText } from "@/components/ui/button";
 
+import { logout } from "@/services/auth.service";
 import { Link, router } from "expo-router";
 
 export default function HomeScreen() {
@@ -25,24 +26,24 @@ export default function HomeScreen() {
     >
       <ThemedView style={styles.titleContainer}>
         <ThemedText type="title">Welcome!</ThemedText>
+        <HelloWave />
 
         <Button variant="solid" onPress={() => router.push("/(auth)/login")}>
-          <ButtonText>Gluestack Button</ButtonText>
+          <ButtonText>Login</ButtonText>
         </Button>
 
-        <HelloWave />
+        <Button variant="solid" onPress={logout}>
+          <ButtonText>Log Out</ButtonText>
+        </Button>
       </ThemedView>
 
-
       <ThemedView style={styles.titleContainer}>
-        <Button variant="solid" onPress={() => router.push("/(main)/courses")}>
+        <Button variant="solid" onPress={() => router.push("/(tabs)/courses")}>
           <ButtonText>Courses</ButtonText>
         </Button>
 
         <HelloWave />
       </ThemedView>
-
-
 
       <ThemedView style={styles.stepContainer}>
         <ThemedText type="subtitle">Step 1: Try it</ThemedText>

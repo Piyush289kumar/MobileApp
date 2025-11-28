@@ -2,10 +2,10 @@
 
 import { API } from "@/api/client";
 import {
-    LoginPayload,
-    LoginResponse,
-    RegisterPayload,
-    RegisterResponse,
+  LoginPayload,
+  LoginResponse,
+  RegisterPayload,
+  RegisterResponse,
 } from "@/types/auth";
 
 export const loginApi = (data: LoginPayload) =>
@@ -13,3 +13,5 @@ export const loginApi = (data: LoginPayload) =>
 
 export const registerApi = (data: RegisterPayload) =>
   API.post<RegisterResponse>("/auth/register", data);
+
+export const logoutApi = () => API.post("/auth/logout");

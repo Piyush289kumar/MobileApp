@@ -15,7 +15,7 @@ export const authSlice = createSlice({
     setAuth: (state, action) => {
       state.user = action.payload.user;
       state.token = action.payload.token;
-      state.isAuthenticated = true;
+      state.isAuthenticated = !!action.payload.token; // auto true/false
     },
     logout: (state) => {
       state.user = null;

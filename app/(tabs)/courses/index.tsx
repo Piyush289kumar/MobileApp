@@ -1,3 +1,5 @@
+// app/(tabs)/courses/index.tsx
+
 import { useCourses } from "@/hooks/useCourses";
 import { useRouter } from "expo-router";
 import { FlatList } from "react-native";
